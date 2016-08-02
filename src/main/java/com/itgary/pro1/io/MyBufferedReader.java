@@ -1,6 +1,4 @@
-package com.itgary.pro1.stu;
-
-import org.junit.Test;
+package com.itgary.pro1.io;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

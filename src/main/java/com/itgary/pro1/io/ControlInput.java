@@ -1,6 +1,4 @@
-package com.itgary.pro1.stu;
-
-import com.sun.org.apache.bcel.internal.generic.LNEG;
+package com.itgary.pro1.io;
 
 import java.io.*;
 
