@@ -1,4 +1,4 @@
-package com.itgary.pro1.stu;
+package com.itgary.pro1.io;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

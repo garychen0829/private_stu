@@ -1,5 +1,3 @@
-package com.itgary.pro1;
-
 import org.junit.Test;
 
 /**

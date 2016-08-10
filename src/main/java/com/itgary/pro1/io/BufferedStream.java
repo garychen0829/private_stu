@@ -1,9 +1,8 @@
-package com.itgary.pro1.stu;
+package com.itgary.pro1.io;
 
 import org.junit.Test;
 
 import java.io.*;
-import java.nio.Buffer;
 
 /**
  * Created by gary on 2016/7/19.
