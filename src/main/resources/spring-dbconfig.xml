@@ -17,8 +17,23 @@
         <property name="automaticTestTable" value="C3P0TestTable" />
         <property name="testConnectionOnCheckin" value="true" />
     </bean>
-    
 
+    <!-- sqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据库连接池 -->
+        <property name="dataSource"	ref="dataSource"></property>
+        <!-- 加载mybatis的全局配置文件 -->
+        <property name="configLocation" value="classpath:sqlMapConfig.xml"></property>
+        <!-- #指定Mybatis配置文件位置 -->
+        <property name="mapperLocations" value="classpath:com/zcsmart/fps/mapper/*.xml" />
+        <property name="configurationProperties">
+            <props>
+                <prop key="cacheEnabled">true</prop>
+                <prop key="lazyLoadingEnabled">false</prop>
+                <prop key="aggressiveLazyLoading">true</prop>
+            </props>
+        </property>
+    </bean>
 
 
 </beans>
