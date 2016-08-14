@@ -67,4 +67,17 @@
         <aop:advisor pointcut-ref="transactionPointcut"
                      advice-ref="transactionAdvice" />
     </aop:config>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.itgary.pro3.spring.mybatis" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+
+    <!-- mapper的扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描的包路径,如果需要扫描多个用","隔开-->
+        <property name="basePackage" value="com.itgary.pro3.spring.mybatis.mapping"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
 </beans>

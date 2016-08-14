@@ -9,6 +9,7 @@ public class Test1 {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Test
     public void test(){
+
         String str = "hello! gary.chen";
         logger.info("logger info : {}", str);
         logger.info("logger debug: {}", str);

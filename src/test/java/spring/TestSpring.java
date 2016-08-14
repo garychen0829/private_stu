@@ -20,6 +20,7 @@ public class TestSpring extends AbstractJUnit4SpringContextTests{
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Test
     public void test(){
+
         TestServerImpl imp = (TestServerImpl)applicationContext.getBean("testServerImpl");
         String str = imp.hello();
         logger.info("slf4j:{} str:{}",logger,str);
