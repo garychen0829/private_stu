@@ -1,18 +1,18 @@
 package com.itgary.pro3.spring.mybatis.entity;
 
-/**
- * Created by gary on 2016/8/14.
- */
 public class UserInfo {
     private String userid;
+
     private String usernm;
+
+    private Integer uage;
 
     public String getUserid() {
         return userid;
     }
 
     public void setUserid(String userid) {
-        this.userid = userid;
+        this.userid = userid == null ? null : userid.trim();
     }
 
     public String getUsernm() {
@@ -20,6 +20,14 @@ public class UserInfo {
     }
 
     public void setUsernm(String usernm) {
-        this.usernm = usernm;
+        this.usernm = usernm == null ? null : usernm.trim();
+    }
+
+    public Integer getUage() {
+        return uage;
+    }
+
+    public void setUage(Integer uage) {
+        this.uage = uage;
     }
 }
