@@ -16,7 +16,14 @@ public class UserImpl implements IUser{
     private UserInfoMapper mapper;
 
     @Override
+    public UserInfo selectByPrimaryKey(String userid) {
+        return null;
+    }
+
+    @Override
     public List<UserInfo> selectAll() {
         return mapper.selectAll();
     }
+
+
 }

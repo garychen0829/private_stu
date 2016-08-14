@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface IUser {
     List<UserInfo> selectAll();
+    UserInfo selectByPrimaryKey(String userid);
 }
