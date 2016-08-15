@@ -50,7 +50,7 @@ public class NettyServer implements InitializingBean,DisposableBean {
     }
 
     public void afterPropertiesSet() throws Exception {
-        logger.info("====init spring.====");
+        logger.info("====init spring.====","bind(10080)");
         //bind(10080);
     }
 
