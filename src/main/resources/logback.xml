@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-    <property name="APP_NAME" value="provider-account" />
+    <property name="APP_NAME" value="private_stu" />
     <!-- 引用配置文件jdbc.properties -->
     <property resource="jdbc.properties"/>
     <!--console appender-->
@@ -23,6 +23,8 @@
         </encoder>
     </appender>
 
+    <logger name="org.mybatis" level="debug"></logger>
+
     <!--当前应用程序的日志级别和使用的append，com.zcsmart为程序的包名-->
     <logger name="com.itgary" level="info">
         <appender-ref ref="FILE"/>
@@ -31,5 +33,4 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="com.zcsmart.routing" level="info" />
 </configuration>
