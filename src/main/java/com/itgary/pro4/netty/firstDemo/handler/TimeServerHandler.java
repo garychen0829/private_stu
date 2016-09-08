@@ -2,7 +2,6 @@ package com.itgary.pro4.netty.firstDemo.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
@@ -14,7 +13,7 @@ import java.util.Date;
  * Created by gary on 2016/8/4.
  */
 public class TimeServerHandler extends ChannelHandlerAdapter {
-    private static Logger logger = LoggerFactory.getLogger(TimeServerHandler.class);
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

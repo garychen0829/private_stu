@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class NettyServer implements InitializingBean,DisposableBean {
     private static Logger logger = LoggerFactory.getLogger(NettyServer.class);
+    //@PostConstruct
     public void bind(int port) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGrp = new NioEventLoopGroup();
