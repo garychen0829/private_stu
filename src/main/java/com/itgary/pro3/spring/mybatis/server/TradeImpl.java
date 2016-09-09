@@ -2,9 +2,9 @@ package com.itgary.pro3.spring.mybatis.server;
 
 import com.itgary.pro3.spring.mybatis.entity.TradeInfo;
 import com.itgary.pro3.spring.mybatis.mapping.TradeInfoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class TradeImpl implements ITrade{
 
-    @Autowired
+    @Resource
     private TradeInfoMapper mapper;
 
     @Override

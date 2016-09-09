@@ -16,7 +16,7 @@
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/${APP_NAME}.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
-            <!--<maxHistory>30</maxHistory>-->
+            <maxHistory>7</maxHistory>
         </rollingPolicy>
         <encoder>
             <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
@@ -26,7 +26,7 @@
     <logger name="org.mybatis" level="debug"></logger>
 
     <!--当前应用程序的日志级别和使用的append，com.zcsmart为程序的包名-->
-    <logger name="com.itgary" level="info">
+    <logger name="com.itgary" level="debug">
         <appender-ref ref="FILE"/>
     </logger>
     <root level="info">

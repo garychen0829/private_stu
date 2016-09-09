@@ -2,9 +2,9 @@ package com.itgary.pro3.spring.mybatis.server;
 
 import com.itgary.pro3.spring.mybatis.entity.UserInfo;
 import com.itgary.pro3.spring.mybatis.mapping.UserInfoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Service
 public class UserImpl implements IUser{
-    @Autowired
+    @Resource
     private UserInfoMapper mapper;
 
     @Override
