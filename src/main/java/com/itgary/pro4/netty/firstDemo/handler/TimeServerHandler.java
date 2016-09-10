@@ -2,20 +2,25 @@ package com.itgary.pro4.netty.firstDemo.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.SocketAddress;
 import java.util.Date;
 
 /**
  * Created by gary on 2016/8/4.
  */
 public class TimeServerHandler extends ChannelHandlerAdapter {
-    private static Logger logger = LoggerFactory.getLogger(TimeServerHandler.class);
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        SocketAddress socketAddress = ctx.channel().remoteAddress();
+        logger.info("SocketAddress socketAddress:{}",socketAddress);
+    }
 
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         logger.info("channelActive");
@@ -30,10 +35,10 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
         buf.readBytes(req);
 
         String body = new String(req,"UTF-8");
-        System.out.println("netty server recv:" + body);
+        System.out.println("###netty server recv###: " + body);
 
         String curtime = new Date(System.currentTimeMillis()).toString();
-        ByteBuf resp = Unpooled.copiedBuffer(curtime.getBytes());
+        ByteBuf resp = Unpooled.copiedBuffer((curtime+"=========abcdefg").getBytes());
         ctx.write(resp);
 
     }
