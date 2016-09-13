@@ -14,5 +14,7 @@ public class Test1 {
         logger.info("logger info : {}", str);
         logger.info("logger debug: {}", str);
         System.out.println("github upload..");
+        System.out.println(System.getProperty("line.separator"));
+        System.out.println("="+System.getProperty("line.separator")+"=");
     }
 }

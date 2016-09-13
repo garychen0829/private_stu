@@ -1,4 +1,4 @@
-package com.itgary.pro4.netty.firstDemo.handler;
+package com.itgary.pro5.netty.firstDemo.firstDemo.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -29,22 +29,12 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
     }
 
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        logger.info("TimeServerHandler channelRead 1,{}", msg);
+        String body = (String) msg;
+        System.out.println("###server revice: " + body + ";the count is :"+ ++count);
 
-        ByteBuf buf = (ByteBuf)msg;
-
-        byte[] req = new byte[buf.readableBytes()];
-        buf.readBytes(req);
-
-        String body = new String(req,"UTF-8").substring(0,req.length - System.getProperty("line.separator").length());
-        logger.info("###netty server recv###: " + body);
-
-        logger.info("The time server receive order: " + body + "; the count is: " + ++count);
-
-        String curtime = new Date(System.currentTimeMillis()).toString();
-        //ByteBuf resp = Unpooled.copiedBuffer((curtime+"=========abcdefg").getBytes());
-        ByteBuf resp = Unpooled.copiedBuffer(body.getBytes());
-
+        String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body)?new Date(System.currentTimeMillis()).toString():"BAD ORDER";
+        currentTime = currentTime + System.getProperty("line.separator");
+        ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         ctx.writeAndFlush(resp);
 
     }

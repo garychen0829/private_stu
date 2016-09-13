@@ -1,21 +1,26 @@
-package com.itgary.pro4.netty.firstDemo;
+package com.itgary.pro5.netty.firstDemo.firstDemo;
 
-import com.itgary.pro4.netty.firstDemo.handler.TimeServerHandler;
+
+import com.itgary.pro5.netty.firstDemo.firstDemo.handler.TimeServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by gary on 2016/8/4.
  */
-//@Component
-//@Scope("singleton")
+@Component
+@Scope("singleton")
 public class NettyServer implements InitializingBean,DisposableBean {
     private static Logger logger = LoggerFactory.getLogger(NettyServer.class);
 
@@ -30,8 +35,8 @@ public class NettyServer implements InitializingBean,DisposableBean {
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new ChannelInitializer<SocketChannel>(){
                         protected void initChannel(SocketChannel ch) throws Exception {
-//                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
-//                            ch.pipeline().addLast(new StringDecoder());
+                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+                            ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new TimeServerHandler());
                         }
                     });
@@ -63,8 +68,9 @@ public class NettyServer implements InitializingBean,DisposableBean {
     }
 
     public void afterPropertiesSet() throws Exception {
-        logger.info("====init spring.===={}","bind(10080)");
-        //bind(10080);
+        logger.info("====init spring.===={}","bind(10080) start");
+        bind(10080);
+        logger.info("====init spring.===={}","bind(10080) end..");
     }
 
     public void destroy() throws Exception {
