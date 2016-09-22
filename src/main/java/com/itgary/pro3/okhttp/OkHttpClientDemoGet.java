@@ -1,24 +1,25 @@
 package com.itgary.pro3.okhttp;
 
 import com.squareup.okhttp.*;
-import com.squareup.okhttp.internal.http.RealResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
 /**
+ * http get请求
  * Created by garychen on 2016/9/22.
  */
-public class OkHttpClientDemo {
+public class OkHttpClientDemoGet {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     OkHttpClient okHttpClient = new OkHttpClient();
-    public void okHttpReq(){
+    public void doOkHttpReq(){
         //http://fanyi.youdao.com/openapi.do?keyfrom=<keyfrom>&key=<key>&type=data&doctype=<doctype>&version=1.1&q=要翻译的文本
+        //http://fanyi.youdao.com/openapi.do?keyfrom=gary96&key=1253068930&type=data&doctype=json&version=1.1&q=welcome
         final Request request = new Request.Builder()
-                                     .url("http://fanyi.youdao.com/openapi.do?keyfrom=private-stu-okhttp&key=788633767&type=data&doctype=json&version=1.1&q=你好")
+                                     .url("http://fanyi.youdao.com/openapi.do?keyfrom=gary96&key=1253068930&type=data&doctype=json&version=1.1&q=welcome")
                                      .build();
 
         Call call = okHttpClient.newCall(request);
@@ -33,16 +34,24 @@ public class OkHttpClientDemo {
                 System.out.println("onResponse");
                 logger.info("response : {}",response);
 
-                RealResponseBody realResponseBody = (RealResponseBody) response.body();
+                //1.获得返回的字符串，可以通过response.body().string()获取
+                //2.获得返回的二进制字节数组，则调用response.body().bytes()；
+                //3.如果想拿到返回的inputStream，则调用response.body().byteStream()
+                String str = response.body().string();
+                /*byte[] bytes = response.body().bytes();
+                logger.info("bytes:{}",bytes);*/
+                //response.body().byteStream();
 
-                logger.info("realResponseBody : {}",realResponseBody.source());
+                System.out.println(response.body().contentType());
+
+                logger.info("str : {}",str);
             }
         });
     }
 
     public static void main(String[] args) {
-        OkHttpClientDemo demo = new OkHttpClientDemo();
-        demo.okHttpReq();
+        OkHttpClientDemoGet demo = new OkHttpClientDemoGet();
+        demo.doOkHttpReq();
     }
 
 }
