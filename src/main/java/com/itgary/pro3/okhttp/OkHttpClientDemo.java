@@ -16,6 +16,7 @@ public class OkHttpClientDemo {
 
     OkHttpClient okHttpClient = new OkHttpClient();
     public void okHttpReq(){
+        //http://fanyi.youdao.com/openapi.do?keyfrom=<keyfrom>&key=<key>&type=data&doctype=<doctype>&version=1.1&q=要翻译的文本
         final Request request = new Request.Builder()
                                      .url("http://fanyi.youdao.com/openapi.do?keyfrom=private-stu-okhttp&key=788633767&type=data&doctype=json&version=1.1&q=你好")
                                      .build();
@@ -33,7 +34,8 @@ public class OkHttpClientDemo {
                 logger.info("response : {}",response);
 
                 RealResponseBody realResponseBody = (RealResponseBody) response.body();
-                logger.info("response : {}",realResponseBody);
+
+                logger.info("realResponseBody : {}",realResponseBody.source());
             }
         });
     }
