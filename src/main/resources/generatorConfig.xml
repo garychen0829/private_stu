@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
     <classPathEntry
-            location="F:\maven_lib\repository\org\postgresql\postgresql\9.4.1208\postgresql-9.4.1208.jar"/>
+            location="G:\java\maven_lib\repository\postgresql\postgresql\9.1-901-1.jdbc4\postgresql-9.1-901-1.jdbc4.jar"/>
     <context id="my" targetRuntime="MyBatis3">
         <property name="mergeable" value="false"></property>
         <commentGenerator>
@@ -16,7 +16,7 @@
 
         <jdbcConnection driverClass="org.postgresql.Driver"
                         connectionURL="jdbc:postgresql://127.0.0.1:5432/zc_routing" userId="postgres"
-                        password="postgres"/>
+                        password="123"/>
 
         <!-- 类型转换 -->
         <javaTypeResolver>
@@ -45,7 +45,7 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>-->
 
-        <table tableName="user_info" domainObjectName="UserInfo"
+        <table tableName="t_trade" domainObjectName="TradeInfo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

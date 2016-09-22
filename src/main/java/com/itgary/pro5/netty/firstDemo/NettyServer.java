@@ -1,11 +1,14 @@
-package com.itgary.pro4.netty.firstDemo;
+package com.itgary.pro5.netty.firstDemo;
 
-import com.itgary.pro4.netty.firstDemo.handler.TimeServerHandler;
+
+import com.itgary.pro5.netty.firstDemo.handler.TimeServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -30,8 +33,8 @@ public class NettyServer implements InitializingBean,DisposableBean {
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new ChannelInitializer<SocketChannel>(){
                         protected void initChannel(SocketChannel ch) throws Exception {
-//                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
-//                            ch.pipeline().addLast(new StringDecoder());
+                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+                            ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new TimeServerHandler());
                         }
                     });
@@ -63,8 +66,9 @@ public class NettyServer implements InitializingBean,DisposableBean {
     }
 
     public void afterPropertiesSet() throws Exception {
-        logger.info("====init spring.===={}","bind(10080)");
-        //bind(10080);
+        logger.info("====init spring.===={LineBasedFrameDecoder}","bind(10080) start");
+//        bind(10080);
+        logger.info("====init spring.===={LineBasedFrameDecoder}","bind(10080) end..");
     }
 
     public void destroy() throws Exception {

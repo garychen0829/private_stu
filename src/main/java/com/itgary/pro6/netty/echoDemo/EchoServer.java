@@ -1,11 +1,18 @@
-package com.itgary.pro4.netty.firstDemo;
+package com.itgary.pro6.netty.echoDemo;
 
-import com.itgary.pro4.netty.firstDemo.handler.TimeServerHandler;
+
+import com.itgary.pro6.netty.echoDemo.handler.EchoServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -16,23 +23,28 @@ import org.springframework.beans.factory.InitializingBean;
  */
 //@Component
 //@Scope("singleton")
-public class NettyServer implements InitializingBean,DisposableBean {
-    private static Logger logger = LoggerFactory.getLogger(NettyServer.class);
+public class EchoServer implements InitializingBean,DisposableBean {
+    private static Logger logger = LoggerFactory.getLogger(EchoServer.class);
 
     public void bind(int port) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGrp = new NioEventLoopGroup();
 
-        ServerBootstrap bootstrap = new ServerBootstrap();
         try {
+            ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGrp)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
-                    .childHandler(new ChannelInitializer<SocketChannel>(){
+                    .option(ChannelOption.SO_BACKLOG, 100)
+                    .handler(new LoggingHandler(LogLevel.INFO))
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+
+                        @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-//                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
-//                            ch.pipeline().addLast(new StringDecoder());
-                            ch.pipeline().addLast(new TimeServerHandler());
+                            ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
+                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));
+                            ch.pipeline().addLast(new StringDecoder());
+                            ch.pipeline().addLast(new EchoServerHandler());
+
                         }
                     });
 
@@ -63,8 +75,9 @@ public class NettyServer implements InitializingBean,DisposableBean {
     }
 
     public void afterPropertiesSet() throws Exception {
-        logger.info("====init spring.===={}","bind(10080)");
-        //bind(10080);
+        logger.info("====init spring.===={DelimiterBasedFrameDecoder}","bind(10080) start");
+//        bind(10080);
+        logger.info("====init spring.===={DelimiterBasedFrameDecoder}","bind(10080) end..");
     }
 
     public void destroy() throws Exception {

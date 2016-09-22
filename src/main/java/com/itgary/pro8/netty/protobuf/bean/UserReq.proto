@@ -1,0 +1,10 @@
+package com.itgary.pro8.netty.protobuf;
+option java_package = "com.itgary.pro8.netty.protobuf.bean";
+option java_outer_classname = "UserInfoReqProto";
+
+message UserInfoReq{
+	required int32 uid = 1;
+	required string name = 2;
+	required int32 age = 3;
+	
+}
