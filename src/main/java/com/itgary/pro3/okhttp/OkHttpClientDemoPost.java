@@ -8,8 +8,8 @@ import org.springframework.web.servlet.tags.Param;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,30 +21,41 @@ public class OkHttpClientDemoPost {
 
     OkHttpClient mOkHttpClient = new OkHttpClient();
 
-    public void doOkHttpReq() throws IOException {
+    public void doOkHttpReq() throws IOException, InterruptedException {
+
+        final CountDownLatch latch = new CountDownLatch(1);
 
         String url = " http://fanyi.youdao.com/openapi.do";
         //String params = "keyfrom=gary96&key=1253068930&type=data&doctype=json&version=1.1&q=welcome";
-        Param params = new Param();
+        Map map = new HashMap();
+        map.put("keyfrom","gary96");
+        map.put("key","1253068930");
+        map.put("type","data");
+        map.put("doctype","json");
+        map.put("version","1.1");
+        map.put("q","hello");
 
-        Request request = buildPostRequest(url,params);
+
+        Request request = buildPostRequest(url,map);
         Call call =  mOkHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-
+                latch.countDown();
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
+                latch.countDown();
                 logger.info("Response:{}",response.body().string());
             }
         });
-
+        latch.await();
     }
 
-    public Request buildPostRequest(String url, Param params){
+    public Request buildPostRequest(String url, Map map){
         FormEncodingBuilder builder = new FormEncodingBuilder();
+        
         builder.add("keyfrom","gary96");
         builder.add("key","1253068930");
         builder.add("type","data");
@@ -61,12 +72,4 @@ public class OkHttpClientDemoPost {
     }
 
 
-    public static void main(String[] args) {
-        OkHttpClientDemoPost post = new OkHttpClientDemoPost();
-        try {
-            post.doOkHttpReq();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
