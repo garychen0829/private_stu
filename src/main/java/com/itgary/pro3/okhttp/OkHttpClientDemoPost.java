@@ -53,15 +53,20 @@ public class OkHttpClientDemoPost {
         latch.await();
     }
 
-    public Request buildPostRequest(String url, Map map){
+    public Request buildPostRequest(String url, Map<String,String> map){
         FormEncodingBuilder builder = new FormEncodingBuilder();
-        
-        builder.add("keyfrom","gary96");
-        builder.add("key","1253068930");
-        builder.add("type","data");
-        builder.add("doctype","json");
-        builder.add("version","1.1");
-        builder.add("q","hello");
+
+        for (Map.Entry<String,String> mEntry : map.entrySet()) {
+            logger.debug("out print, key[{}],value[{}] : " , mEntry.getKey() ,mEntry.getValue());
+            builder.add(mEntry.getKey(),mEntry.getValue());
+        }
+
+//        builder.add("keyfrom","gary96");
+//        builder.add("key","1253068930");
+//        builder.add("type","data");
+//        builder.add("doctype","json");
+//        builder.add("version","1.1");
+//        builder.add("q","hello");
 
         Request req = new Request.Builder()
                 .url(url)
