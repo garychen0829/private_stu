@@ -10,14 +10,4 @@ public enum ThreadState {
     WAITING,
     TIMED_WAITING,
     TERMINATED;
-
-    /* note:
-    NEW:表示刚刚创建的线程,
-
-
-
-
-
-     */
-
 }
