@@ -7,7 +7,6 @@ public class TestThread extends Thread{
     private int i;
 
     public TestThread(int i){
-        super.run();
         this.i = i;
     }
 
