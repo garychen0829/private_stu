@@ -19,7 +19,8 @@ public class BinaryUtilsTest {
 
     @Test
     public void hexString2binaryString() throws Exception {
-        String hexString = "ABCD";
+        //String hexString = "ABCD";
+        String hexString = "49";
         System.out.println(BinaryUtils.hexString2binaryString(hexString));
     }
 

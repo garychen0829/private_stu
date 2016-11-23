@@ -20,8 +20,5 @@ public class BytesUtilsTest {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-
     }
-
-
 }

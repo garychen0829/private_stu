@@ -23,7 +23,7 @@
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: 'ECharts from Zero.(it\'s my first echarts demo.)'
+            text: 'ECharts from Zero.(it\'s my first echarts demo1.)'
         },
         tooltip: {},
         legend: {
