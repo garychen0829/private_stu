@@ -3,14 +3,11 @@ package com.itgary.pro3.okhttp;
 import com.squareup.okhttp.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.servlet.tags.Param;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by gary on 2016/9/22.
@@ -41,6 +38,7 @@ public class OkHttpClientDemoPost {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
+                logger.info("IOException e:{}",e);
                 latch.countDown();
             }
 
@@ -57,17 +55,9 @@ public class OkHttpClientDemoPost {
         FormEncodingBuilder builder = new FormEncodingBuilder();
 
         for (Map.Entry<String,String> mEntry : map.entrySet()) {
-            logger.debug("out print, key[{}],value[{}] : " , mEntry.getKey() ,mEntry.getValue());
+            logger.debug("out print, key[{}]--------value[{}] : " , mEntry.getKey() ,mEntry.getValue());
             builder.add(mEntry.getKey(),mEntry.getValue());
         }
-
-//        builder.add("keyfrom","gary96");
-//        builder.add("key","1253068930");
-//        builder.add("type","data");
-//        builder.add("doctype","json");
-//        builder.add("version","1.1");
-//        builder.add("q","hello");
-
         Request req = new Request.Builder()
                 .url(url)
                 .post(builder.build())
