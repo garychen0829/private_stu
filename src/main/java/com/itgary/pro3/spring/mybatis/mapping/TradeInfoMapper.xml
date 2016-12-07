@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itgary.pro3.spring.mybatis.mapping.TradeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.itgary.pro3.spring.mybatis.entity.TradeInfo" >
+    <id column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="ordertime" property="ordertime" jdbcType="VARCHAR" />
+    <result column="cardno" property="cardno" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="tradeno" property="tradeno" jdbcType="VARCHAR" />
+    <result column="tradetype" property="tradetype" jdbcType="VARCHAR" />
+    <result column="actionno" property="actionno" jdbcType="VARCHAR" />
+    <result column="instcode" property="instcode" jdbcType="VARCHAR" />
+    <result column="channleno" property="channleno" jdbcType="VARCHAR" />
+    <result column="brhid" property="brhid" jdbcType="VARCHAR" />
+    <result column="merid" property="merid" jdbcType="VARCHAR" />
+    <result column="tradeamt" property="tradeamt" jdbcType="INTEGER" />
+    <result column="accoinfo" property="accoinfo" jdbcType="VARCHAR" />
+    <result column="tradesta" property="tradesta" jdbcType="VARCHAR" />
+    <result column="tradedate" property="tradedate" jdbcType="VARCHAR" />
+    <result column="orgtradeno" property="orgtradeno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pid, orderno, ordertime, cardno, userid, tradeno, tradetype, actionno, instcode, 
+    channleno, brhid, merid, tradeamt, accoinfo, tradesta, tradedate, orgtradeno
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_trade
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_trade
+    where pid = #{pid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_trade
+    where pid = #{pid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.itgary.pro3.spring.mybatis.entity.TradeInfo" >
+    insert into t_trade (pid, orderno, ordertime, 
+      cardno, userid, tradeno, 
+      tradetype, actionno, instcode, 
+      channleno, brhid, merid, 
+      tradeamt, accoinfo, tradesta, 
+      tradedate, orgtradeno)
+    values (#{pid,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, #{ordertime,jdbcType=VARCHAR}, 
+      #{cardno,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{tradeno,jdbcType=VARCHAR}, 
+      #{tradetype,jdbcType=VARCHAR}, #{actionno,jdbcType=VARCHAR}, #{instcode,jdbcType=VARCHAR}, 
+      #{channleno,jdbcType=VARCHAR}, #{brhid,jdbcType=VARCHAR}, #{merid,jdbcType=VARCHAR}, 
+      #{tradeamt,jdbcType=INTEGER}, #{accoinfo,jdbcType=VARCHAR}, #{tradesta,jdbcType=VARCHAR}, 
+      #{tradedate,jdbcType=VARCHAR}, #{orgtradeno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itgary.pro3.spring.mybatis.entity.TradeInfo" >
+    insert into t_trade
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="ordertime != null" >
+        ordertime,
+      </if>
+      <if test="cardno != null" >
+        cardno,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="tradeno != null" >
+        tradeno,
+      </if>
+      <if test="tradetype != null" >
+        tradetype,
+      </if>
+      <if test="actionno != null" >
+        actionno,
+      </if>
+      <if test="instcode != null" >
+        instcode,
+      </if>
+      <if test="channleno != null" >
+        channleno,
+      </if>
+      <if test="brhid != null" >
+        brhid,
+      </if>
+      <if test="merid != null" >
+        merid,
+      </if>
+      <if test="tradeamt != null" >
+        tradeamt,
+      </if>
+      <if test="accoinfo != null" >
+        accoinfo,
+      </if>
+      <if test="tradesta != null" >
+        tradesta,
+      </if>
+      <if test="tradedate != null" >
+        tradedate,
+      </if>
+      <if test="orgtradeno != null" >
+        orgtradeno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null" >
+        #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeno != null" >
+        #{tradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="tradetype != null" >
+        #{tradetype,jdbcType=VARCHAR},
+      </if>
+      <if test="actionno != null" >
+        #{actionno,jdbcType=VARCHAR},
+      </if>
+      <if test="instcode != null" >
+        #{instcode,jdbcType=VARCHAR},
+      </if>
+      <if test="channleno != null" >
+        #{channleno,jdbcType=VARCHAR},
+      </if>
+      <if test="brhid != null" >
+        #{brhid,jdbcType=VARCHAR},
+      </if>
+      <if test="merid != null" >
+        #{merid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeamt != null" >
+        #{tradeamt,jdbcType=INTEGER},
+      </if>
+      <if test="accoinfo != null" >
+        #{accoinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="tradesta != null" >
+        #{tradesta,jdbcType=VARCHAR},
+      </if>
+      <if test="tradedate != null" >
+        #{tradedate,jdbcType=VARCHAR},
+      </if>
+      <if test="orgtradeno != null" >
+        #{orgtradeno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itgary.pro3.spring.mybatis.entity.TradeInfo" >
+    update t_trade
+    <set >
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null" >
+        ordertime = #{ordertime,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null" >
+        cardno = #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeno != null" >
+        tradeno = #{tradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="tradetype != null" >
+        tradetype = #{tradetype,jdbcType=VARCHAR},
+      </if>
+      <if test="actionno != null" >
+        actionno = #{actionno,jdbcType=VARCHAR},
+      </if>
+      <if test="instcode != null" >
+        instcode = #{instcode,jdbcType=VARCHAR},
+      </if>
+      <if test="channleno != null" >
+        channleno = #{channleno,jdbcType=VARCHAR},
+      </if>
+      <if test="brhid != null" >
+        brhid = #{brhid,jdbcType=VARCHAR},
+      </if>
+      <if test="merid != null" >
+        merid = #{merid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeamt != null" >
+        tradeamt = #{tradeamt,jdbcType=INTEGER},
+      </if>
+      <if test="accoinfo != null" >
+        accoinfo = #{accoinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="tradesta != null" >
+        tradesta = #{tradesta,jdbcType=VARCHAR},
+      </if>
+      <if test="tradedate != null" >
+        tradedate = #{tradedate,jdbcType=VARCHAR},
+      </if>
+      <if test="orgtradeno != null" >
+        orgtradeno = #{orgtradeno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pid = #{pid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itgary.pro3.spring.mybatis.entity.TradeInfo" >
+    update t_trade
+    set orderno = #{orderno,jdbcType=VARCHAR},
+      ordertime = #{ordertime,jdbcType=VARCHAR},
+      cardno = #{cardno,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      tradeno = #{tradeno,jdbcType=VARCHAR},
+      tradetype = #{tradetype,jdbcType=VARCHAR},
+      actionno = #{actionno,jdbcType=VARCHAR},
+      instcode = #{instcode,jdbcType=VARCHAR},
+      channleno = #{channleno,jdbcType=VARCHAR},
+      brhid = #{brhid,jdbcType=VARCHAR},
+      merid = #{merid,jdbcType=VARCHAR},
+      tradeamt = #{tradeamt,jdbcType=INTEGER},
+      accoinfo = #{accoinfo,jdbcType=VARCHAR},
+      tradesta = #{tradesta,jdbcType=VARCHAR},
+      tradedate = #{tradedate,jdbcType=VARCHAR},
+      orgtradeno = #{orgtradeno,jdbcType=VARCHAR}
+    where pid = #{pid,jdbcType=VARCHAR}
+  </update>
+</mapper>
