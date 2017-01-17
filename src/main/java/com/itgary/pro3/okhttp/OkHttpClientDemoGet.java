@@ -26,7 +26,8 @@ public class OkHttpClientDemoGet {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                System.out.println("onFailure");
+                logger.error("response : {}:{}","[onFailure]", e);
+
             }
 
             @Override
