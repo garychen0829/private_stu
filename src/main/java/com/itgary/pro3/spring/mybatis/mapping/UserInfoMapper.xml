@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itgary.pro3.spring.mybatis.mapping.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.itgary.pro3.spring.mybatis.entity.UserInfo">
+    <id column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="usernm" jdbcType="VARCHAR" property="usernm" />
+    <result column="uage" jdbcType="INTEGER" property="uage" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userid, usernm, uage
+  </sql>
+  <select id="selectAll" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_info
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.itgary.pro3.spring.mybatis.entity.UserInfo">
+    insert into user_info (userid, usernm, uage
+      )
+    values (#{userid,jdbcType=VARCHAR}, #{usernm,jdbcType=VARCHAR}, #{uage,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itgary.pro3.spring.mybatis.entity.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="usernm != null">
+        usernm,
+      </if>
+      <if test="uage != null">
+        uage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="usernm != null">
+        #{usernm,jdbcType=VARCHAR},
+      </if>
+      <if test="uage != null">
+        #{uage,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itgary.pro3.spring.mybatis.entity.UserInfo">
+    update user_info
+    <set>
+      <if test="usernm != null">
+        usernm = #{usernm,jdbcType=VARCHAR},
+      </if>
+      <if test="uage != null">
+        uage = #{uage,jdbcType=INTEGER},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itgary.pro3.spring.mybatis.entity.UserInfo">
+    update user_info
+    set usernm = #{usernm,jdbcType=VARCHAR},
+      uage = #{uage,jdbcType=INTEGER}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

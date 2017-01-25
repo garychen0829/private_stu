@@ -1,0 +1,29 @@
+编写proto代码:
+参照:
+http://blog.163.com/linfenliang@126/blog/static/127857195201467112059936/
+---start---
+package com.itgary.pro8.netty.protobuf;
+option java_package = "com.itgary.pro8.netty.protobuf.bean";
+option java_outer_classname = "UserInfoReqProto";
+
+message UserInfoReq{
+    required int32 uid = 1;
+    required string name = 2;
+    required int32 age = 3;
+
+}
+---end-----
+
+
+在protoc-2.5.0-win32解压后的目录下,执行脚本,
+
+eg:
+E:\protoc-2.5.0-win32>protoc UserReq.proto --java_out=E:\protoc-2.5.0-win32\out
+
+说明：
+protoc-2.5.0-win32：google的工具文件。
+protoc：为命令。
+UserReq.proto为需要编译执行的文件。
+java_out：为输出路径。
+
+test包中UserInfoReqTest为测试代码
