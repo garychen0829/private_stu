@@ -3,6 +3,7 @@ package com.itgary.pro2.thread0117.test1_ThreadPool.demo3;
 import java.util.concurrent.*;
 
 /**
+ * 负载怎么办,拒绝策略
  * Created by garychen on 2017/2/4.
  */
 public class RejectThreadPoolDemo {
