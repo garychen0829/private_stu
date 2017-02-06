@@ -1,11 +1,13 @@
 package com.itgary.pro2.thread0117.test1_ThreadPool.demo5;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
+ * 扩展线程池
+ * 直接提交的队列
+ * 有界任务队列
+ * 无界的任务队列
+ * 优先任务队列
  * Created by garychen on 2017/2/6.
  */
 public class ExtThreadPool {
@@ -30,7 +32,12 @@ public class ExtThreadPool {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService ex = new ThreadPoolExecutor(5,5,0L, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>()){
+        ExecutorService ex = new ThreadPoolExecutor(5,5,0L,
+                                                    TimeUnit.MILLISECONDS,
+                                                    //new SynchronousQueue<Runnable>()){        //直接提交的队列
+                                                    //new ArrayBlockingQueue<Runnable>(2)){     //有界任务队列
+                                                    new LinkedBlockingQueue<Runnable>()){       //无界的任务队列
+                                                    //new PriorityBlockingQueue<Runnable>(){    //优先任务队列
             @Override
             protected void beforeExecute(Thread t, Runnable r) {
                 System.out.println("准备执行: " + ((MyTask5)r).name);
@@ -38,7 +45,7 @@ public class ExtThreadPool {
 
             @Override
             protected void afterExecute(Runnable r, Throwable t) {
-                System.out.println("执行完成: " + ((MyTask5)r).name);
+                System.out.println("--执行完成--: " + ((MyTask5)r).name);
             }
 
             @Override

@@ -7,6 +7,7 @@ import java.sql.Time;
 import java.util.concurrent.*;
 
 /**
+ * 在线程池中寻找堆栈 2
  * Created by garychen on 2017/2/6.
  */
 public class TraceThreadPoolExecutor extends ThreadPoolExecutor{
@@ -48,21 +49,21 @@ public class TraceThreadPoolExecutor extends ThreadPoolExecutor{
     public static void main(String[] args) {
 
 
-        switch ("b") {
-            case "a":
-                System.out.println("aaa");
-                break;
-            case "b":
-                System.out.println("bbb");
-                break;
-        }
-
-//        ThreadPoolExecutor pools = new TraceThreadPoolExecutor(0,Integer.MAX_VALUE,0L, TimeUnit.MILLISECONDS,new SynchronousQueue<Runnable>());
-//        /**
-//         * 错误堆栈可以看到是在哪里提交的任务
-//         */
-//        for (int i = 0; i < 5; i++) {
-//            pools.execute(new DivTask(100,i));
+//        switch ("b") {
+//            case "a":
+//                System.out.println("aaa");
+//                break;
+//            case "b":
+//                System.out.println("bbb");
+//                break;
 //        }
+
+        ThreadPoolExecutor pools = new TraceThreadPoolExecutor(0,Integer.MAX_VALUE,0L, TimeUnit.MILLISECONDS,new SynchronousQueue<Runnable>());
+        /**
+         * 错误堆栈可以看到是在哪里提交的任务
+         */
+        for (int i = 0; i < 5; i++) {
+            pools.execute(new DivTask(100,i));
+        }
     }
 }

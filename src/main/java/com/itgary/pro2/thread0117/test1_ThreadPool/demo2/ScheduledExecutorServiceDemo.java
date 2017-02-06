@@ -5,6 +5,10 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * ScheduledExecutorService在指定时间执行某任务的功能.
+ *      1.如在某个固定的延迟之后执行.
+ *      2.或周期性执行某个任务.
+ * Executors.newScheduledThreadPool(10) 返回一个ScheduledExecutorService对象,该线程可以指定该线程数量
  * Created by garychen on 2017/2/4.
  */
 public class ScheduledExecutorServiceDemo {

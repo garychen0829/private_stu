@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 固定线程数量的线程池
  * Created by garychen on 2017/1/25.
  */
 public class ThreadPoolDemo {
