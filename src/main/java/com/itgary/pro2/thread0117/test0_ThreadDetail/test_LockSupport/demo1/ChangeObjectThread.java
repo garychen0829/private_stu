@@ -1,4 +1,4 @@
-package com.itgary.pro2.thread0117.test_LockSupport.demo1;
+package com.itgary.pro2.thread0117.test0_ThreadDetail.test_LockSupport.demo1;
 
 import java.util.concurrent.locks.LockSupport;
 

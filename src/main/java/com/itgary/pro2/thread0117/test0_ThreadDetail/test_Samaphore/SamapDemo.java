@@ -1,4 +1,4 @@
-package com.itgary.pro2.thread0117.test_Samaphore;
+package com.itgary.pro2.thread0117.test0_ThreadDetail.test_Samaphore;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

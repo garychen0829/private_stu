@@ -1,8 +1,6 @@
-package com.itgary.pro2.thread0117.test_ReentrantLock;
+package com.itgary.pro2.thread0117.test0_ThreadDetail.test_ReentrantLock;
 
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**ReenterLock的Condition的对象的使用.

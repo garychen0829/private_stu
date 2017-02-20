@@ -1,4 +1,4 @@
-package com.itgary.pro2.thread0117.test_arryalist;
+package com.itgary.pro2.thread0117.test0_ThreadDetail.test_arryalist;
 
 import java.util.ArrayList;
 

@@ -5,6 +5,8 @@ package com.itgary.pro2.thread0117.test1_ThreadPool;
  */
 public class TestClass {
 
+
+
     public static void main(String[] args) {
 
         //内部类在局部位置上,只能访问局部中被final修饰的局部变量

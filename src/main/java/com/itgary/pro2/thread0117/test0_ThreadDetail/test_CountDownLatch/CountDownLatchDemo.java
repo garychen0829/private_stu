@@ -1,4 +1,4 @@
-package com.itgary.pro2.thread0117.test_CountDownLatch;
+package com.itgary.pro2.thread0117.test0_ThreadDetail.test_CountDownLatch;
 
 import org.springframework.util.StopWatch;
 

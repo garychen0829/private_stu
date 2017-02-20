@@ -1,0 +1,6 @@
+1.ConcurrentHashMap:是一个高效的并发HashMap.可以理解为一个线程安全的HashMap.
+    具体细节在第4章,锁的优化及注意事项
+2.CopyOnWriteArrayList:是一个List,在读多写少的场合,这个list的性能非常好,远远好于Vector.
+3.ConcurrentLinkedQueue:高效的并发队列,使用链表实现,可以看做一个线程安全的LinkedList.
+4.BlockingQueue:这是一个借口,JDK内部通过链表,数据等方式实现了这个接口,表示线程阻塞队列,非常适合用于作为数据共享的通道.
+5.ConcurrentSkipListMap:跳表的实现,这是一个Map,使用跳表的数据结构进行快速查找.

@@ -1,4 +1,4 @@
-package com.itgary.pro2.thread0117.test_ReadWriterLock;
+package com.itgary.pro2.thread0117.test0_ThreadDetail.test_ReadWriterLock;
 
 import org.springframework.util.StopWatch;
 
