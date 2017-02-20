@@ -1,4 +1,4 @@
-package com.itgary.pro12_Thread;
+package com.itgary.pro12_Thread.base;
 
 /**
  * Created by garychen on 2017/1/17.
