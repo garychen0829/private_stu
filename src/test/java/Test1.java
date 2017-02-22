@@ -10,6 +10,13 @@ public class Test1 {
     @Test
     public void test(){
 
+        byte b = 0x01;
+        if (b == 1) {
+            System.out.println("ok");
+        }else {
+            System.out.println("eror");
+        }
+
         String str = "hello! gary.chen";
         logger.info("logger info : {}", str);
         logger.info("logger debug: {}", str);
