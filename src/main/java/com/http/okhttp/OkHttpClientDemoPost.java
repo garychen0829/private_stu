@@ -1,4 +1,4 @@
-package com.itgary.pro3.okhttp;
+package com.http.okhttp;
 
 import com.squareup.okhttp.*;
 import org.slf4j.Logger;

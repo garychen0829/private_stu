@@ -25,12 +25,13 @@ public class CountDownLatchDemo implements Runnable{
             Thread.sleep(new Random().nextInt(10)*1000);
             System.out.println("check complete");
             end.countDown();
+            System.out.println("number : "+end.getCount());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         stopWatch.stop();
-        System.out.println("cost: "+ stopWatch.getTotalTimeMillis() + " ms");
+        //System.out.println("cost: "+ stopWatch.getTotalTimeMillis() + " ms");
 
     }
 

@@ -1,10 +1,9 @@
-package com.itgary.pro3.okhttp;
+package com.http.httpclient.okhttp;
 
+import com.http.okhttp.OkHttpClientDemoPost;
 import org.junit.Test;
 
 import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by garychen on 2016/9/23.
