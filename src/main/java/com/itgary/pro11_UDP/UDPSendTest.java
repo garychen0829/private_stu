@@ -23,6 +23,6 @@ public class UDPSendTest {
         //4、关闭连接
         socket.close();
 
-
+        System.out.println("数据发送至:8088端口");
     }
 }

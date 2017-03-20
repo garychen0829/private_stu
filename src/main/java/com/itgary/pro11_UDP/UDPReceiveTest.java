@@ -6,6 +6,7 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 /**
+ * UDP协议也是传输层协议，它是无连接，不保证可靠的传输层协议
  * Created by garychen on 2017/1/20.
  */
 public class UDPReceiveTest {
@@ -20,6 +21,7 @@ public class UDPReceiveTest {
         //3.接收数据
         socket.receive(packet);
 
+        System.out.println("接收的数据>>");
         System.out.println(packet.getAddress().getHostAddress() + " : " + packet.getPort());
 
         //因为getData()返回byte[]类型数据，直接toString会将之序列化
