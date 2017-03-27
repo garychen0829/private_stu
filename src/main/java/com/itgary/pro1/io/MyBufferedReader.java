@@ -29,8 +29,6 @@ public class MyBufferedReader {
                 }else{
                     sb.append((char) ch);
                 }
-
-
             }
             if (sb.length() != 0) {
                 return sb.toString();
@@ -51,6 +49,7 @@ public class MyBufferedReader {
             String line = null;
             while ((line = my.myReadLine()) != null){
                 System.out.println(line);
+                System.out.println("---------------");
             }
 
             my.myclose();
