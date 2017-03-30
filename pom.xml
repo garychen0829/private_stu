@@ -211,6 +211,20 @@
     </dependency>
 
 
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.activemq/activemq-all &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.activemq</groupId>-->
+      <!--<artifactId>activemq-all</artifactId>-->
+      <!--<version>5.14.4</version>-->
+    <!--</dependency>-->
+    <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-core</artifactId>
+      <version>5.7.0</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
