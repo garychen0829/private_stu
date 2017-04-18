@@ -204,8 +204,8 @@ public class ByteUtil {
 	/**
 	 * 将两个byte数组合并为一个
 	 * 
-	 * @param byte_1
-	 * @param byte_2
+	 * @param byte1
+	 * @param byte2
 	 * @return
 	 */
 	public static byte[] byteMerger(byte[] byte1, byte[] byte2) {
@@ -265,8 +265,7 @@ public class ByteUtil {
 	/**
 	 * 将byte数组转换成十六进制字符串
 	 * 
-	 * @param first
-	 * @param rest
+	 * @param ba
 	 * @return
 	 */
 	public static String byteToString(byte[] ba) {
@@ -281,8 +280,7 @@ public class ByteUtil {
 	/**
 	 * 将十六进制字符串转换成byte数组
 	 * 
-	 * @param first
-	 * @param rest
+	 * @param hexString
 	 * @return
 	 */
 	public static byte[] hexStringToBytes(String hexString) {
