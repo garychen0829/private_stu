@@ -281,7 +281,7 @@ public class ByteUtil {
 	 * 将十六进制字符串转换成byte数组
 	 * 
 	 * @param hexString
-	 * @return
+	 * @returnl
 	 */
 	public static byte[] hexStringToBytes(String hexString) {
 		if (hexString == null || hexString.equals("")) {
