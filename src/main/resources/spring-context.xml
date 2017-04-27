@@ -16,7 +16,7 @@
     <!--打开注解选项-->
     <context:annotation-config/>
     <!--设置注解扫描路径-->
-    <context:component-scan base-package="com.itgary"/>
+    <!--<context:component-scan base-package="com.itgary"/>-->
 
 
 
