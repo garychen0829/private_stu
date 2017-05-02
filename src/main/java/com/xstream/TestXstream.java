@@ -3,6 +3,7 @@ package com.xstream;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import com.xstream.bean.Student;
+import com.xstream.bean.TeacherBean;
 import org.xml.sax.InputSource;
 
 import javax.xml.transform.OutputKeys;
@@ -21,19 +22,42 @@ public class TestXstream {
 
     public static void main(String[] args) {
         XStream xstream = new XStream(new StaxDriver());
-        xstream.alias("student", Student.class);
+        xstream.alias("student", Student.class);                    //对象节点(类混叠)
+//        xstream.useAttributeFor(Student.class, "name");
+//        xstream.aliasField("studentName", Student.class, "id");
+        xstream.aliasField("studentName", Student.class, "name");   //字段节点(字段混叠)
+        //xstream.addImplicitCollection(Student.class, "notes");      //隐式集合混叠
         Student student = new Student();
         student.setName("gary");
         student.setAge(27);
 
         String xml = xstream.toXML(student);
         System.out.println(xml);
+        System.out.println("===========================================");
         System.out.println(formatXml(xml));
         //XML to Object Conversion
         Student student1 = (Student)xstream.fromXML(xml);
-        System.out.println(student1);
+        System.out.println("json: "+student1);
+
+        System.out.println("===========================================注解方式好像不好用,猜测要配置环境变量");
+        //注解方式
+        TestXstream testXstream = new TestXstream();
+        TeacherBean teacherBean = testXstream.getTeacher();
+
+        xml = xstream.toXML(teacherBean);
+
+        System.out.println(xml);
+
     }
 
+
+    public TeacherBean getTeacher(){
+        TeacherBean teacherBean = new TeacherBean();
+        teacherBean.setTeachName("chenhui");
+        teacherBean.setTeachAge(8);
+
+        return teacherBean;
+    }
 
     /**
      * xml格式化

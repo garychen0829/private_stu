@@ -24,6 +24,7 @@
     </appender>
 
     <logger name="org.mybatis" level="debug"></logger>
+    <logger name="org.apache.shiro" level="debug"></logger>
 
     <!--当前应用程序的日志级别和使用的append，com.zcsmart为程序的包名-->
     <logger name="com.itgary" level="debug">

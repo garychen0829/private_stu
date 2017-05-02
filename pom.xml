@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>WorkSpace</groupId>
-  <artifactId>Test</artifactId>
+  <artifactId>private_stu</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Test Maven Webapp</name>
@@ -232,6 +232,14 @@
     </dependency>
 
 
+    <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-all</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
@@ -285,7 +293,7 @@
         <version>9.2.5.v20141112</version>
         <configuration>
           <scanIntervalSeconds>10</scanIntervalSeconds>
-          <jettyXml>${basedir}/jetty.xml</jettyXml>
+          <!--<jettyXml>${basedir}/jetty.xml</jettyXml>-->
           <stopKey>STOP!!</stopKey>
           <stopPort>9099</stopPort>
           <daemon>true</daemon>
@@ -305,7 +313,7 @@
               <scanIntervalSeconds>0</scanIntervalSeconds>
               <!--<daemon>true</daemon>-->
               <stopKey>STOP!!</stopKey>
-              <stopPort>9099</stopPort>
+              <stopPort>9090</stopPort>
             </configuration>
           </execution>
           <execution>
@@ -335,6 +343,6 @@
         <version>2.0</version>
       </plugin>
     </plugins>
-    <finalName>Test</finalName>
+    <finalName>private_stu</finalName>
   </build>
 </project>
