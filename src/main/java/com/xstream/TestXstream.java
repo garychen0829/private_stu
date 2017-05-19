@@ -47,6 +47,15 @@ public class TestXstream {
         xml = xstream.toXML(teacherBean);
 
         System.out.println(xml);
+        System.out.println("############################################");
+
+        String xml1 = "<?xml version=\"1.0\" ?><student><studentName>\\</studentName><age>27</age></student>";
+        System.out.println();
+        Student student2 = (Student)xstream.fromXML(xml1);
+
+        System.out.println(student2.toString());
+        String name = student2.getName().replace("\\","/");
+        System.out.println(name);
 
     }
 
