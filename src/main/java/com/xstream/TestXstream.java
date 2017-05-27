@@ -23,39 +23,44 @@ public class TestXstream {
     public static void main(String[] args) {
         XStream xstream = new XStream(new StaxDriver());
         xstream.alias("student", Student.class);                    //对象节点(类混叠)
-//        xstream.useAttributeFor(Student.class, "name");
-//        xstream.aliasField("studentName", Student.class, "id");
-        xstream.aliasField("studentName", Student.class, "name");   //字段节点(字段混叠)
+        //xstream.useAttributeFor(Student.class, "name");
+        xstream.aliasField("aaa", Student.class, "age");
+        //xstream.aliasField("name:a", Student.class, "name");   //字段节点(字段混叠)
         //xstream.addImplicitCollection(Student.class, "notes");      //隐式集合混叠
         Student student = new Student();
         student.setName("gary");
         student.setAge(27);
 
         String xml = xstream.toXML(student);
-        System.out.println(xml);
-        System.out.println("===========================================");
-        System.out.println(formatXml(xml));
+        System.out.println(">>>"+xml);
+//        System.out.println("===========================================");
+//        System.out.println(formatXml(xml));
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
         //XML to Object Conversion
         Student student1 = (Student)xstream.fromXML(xml);
         System.out.println("json: "+student1);
 
         System.out.println("===========================================注解方式好像不好用,猜测要配置环境变量");
-        //注解方式
-        TestXstream testXstream = new TestXstream();
-        TeacherBean teacherBean = testXstream.getTeacher();
+//        //注解方式
+//        TestXstream testXstream = new TestXstream();
+//        TeacherBean teacherBean = testXstream.getTeacher();
+//
+//        xml = xstream.toXML(teacherBean);
+//
+//        System.out.println(xml);
+//        System.out.println("############################################");
 
-        xml = xstream.toXML(teacherBean);
-
-        System.out.println(xml);
-        System.out.println("############################################");
-
-        String xml1 = "<?xml version=\"1.0\" ?><student><studentName>\\</studentName><age>27</age></student>";
-        System.out.println();
-        Student student2 = (Student)xstream.fromXML(xml1);
-
-        System.out.println(student2.toString());
-        String name = student2.getName().replace("\\","/");
-        System.out.println(name);
+//        String xml1 = "<?xml version=\"1.0\" ?><student><studentName>\\</studentName><age>27</age></student>";
+//        System.out.println();
+//        Student student2 = (Student)xstream.fromXML(xml1);
+//
+//        System.out.println(student2.toString());
+//        String name = student2.getName().replace("\\","/");
+//        System.out.println(name);
 
     }
 
