@@ -1,4 +1,4 @@
-package com.itgary.pro.jna;
+package com.jna;
 
 import java.util.Arrays;
 

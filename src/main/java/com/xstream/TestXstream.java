@@ -25,8 +25,8 @@ public class TestXstream {
         xstream.alias("student", Student.class);                    //对象节点(类混叠)
         //xstream.useAttributeFor(Student.class, "name");
         xstream.aliasField("aaa", Student.class, "age");
-        //xstream.aliasField("name:a", Student.class, "name");   //字段节点(字段混叠)
-        //xstream.addImplicitCollection(Student.class, "notes");      //隐式集合混叠
+//        xstream.aliasField("name", Student.class, "name");   //字段节点(字段混叠)
+        xstream.addImplicitCollection(Student.class, "age");      //隐式集合混叠
         Student student = new Student();
         student.setName("gary");
         student.setAge(27);

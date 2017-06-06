@@ -1,4 +1,4 @@
-package com.itgary.pro1.io;
+package com.io;
 
 import java.io.*;
 
