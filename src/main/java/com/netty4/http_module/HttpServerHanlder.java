@@ -2,17 +2,11 @@ package com.netty4.http_module;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
-import io.netty.handler.codec.rtsp.RtspHeaders;
-
 
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
-import static io.netty.handler.codec.rtsp.RtspHeaders.Names.CONTENT_LENGTH;
-import static io.netty.handler.codec.rtsp.RtspHeaders.Names.CONTENT_TYPE;
 
 /**
  * Created by garychen on 2017/6/7.

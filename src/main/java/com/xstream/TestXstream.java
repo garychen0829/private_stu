@@ -29,12 +29,12 @@ public class TestXstream {
         xstream.addImplicitCollection(Student.class, "age");      //隐式集合混叠
         Student student = new Student();
         student.setName("gary");
-        student.setAge(27);
+        //student.setAge(27);
 
         String xml = xstream.toXML(student);
         System.out.println(">>>"+xml);
 //        System.out.println("===========================================");
-//        System.out.println(formatXml(xml));
+        System.out.println(formatXml(xml));
 
         System.out.println();
         System.out.println();
@@ -54,9 +54,9 @@ public class TestXstream {
 //        System.out.println(xml);
 //        System.out.println("############################################");
 
-//        String xml1 = "<?xml version=\"1.0\" ?><student><studentName>\\</studentName><age>27</age></student>";
-//        System.out.println();
-//        Student student2 = (Student)xstream.fromXML(xml1);
+        String xml1 = "<?xml version=\"1.0\" ?><student><studentName>aa</studentName><age>27</age></student>";
+        System.out.println();
+        Student student2 = (Student)xstream.fromXML(xml1);
 //
 //        System.out.println(student2.toString());
 //        String name = student2.getName().replace("\\","/");

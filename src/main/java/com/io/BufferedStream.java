@@ -13,7 +13,8 @@ public class BufferedStream {
     public void test01_BufferedWriter() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("bf1.txt"));
-            bw.write("chenhui bufferWriter");
+            bw.write("chenhui bufferWriter........\n");
+            bw.write("xxxx bufferWriter........");
             bw.flush();
             bw.close();
         } catch (IOException e) {
